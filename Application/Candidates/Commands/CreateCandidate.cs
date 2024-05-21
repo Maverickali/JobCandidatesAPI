@@ -2,11 +2,7 @@
 using Domain.Entities;
 using Infrastructure.Data;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Candidates.Commands
 {
@@ -21,6 +17,21 @@ namespace Application.Candidates.Commands
 
         public async Task<int> Handle(CreateCandidateCommandDto request, CancellationToken cancellationToken)
         {
+            var existingCandidate = await _context.Candidates.FirstOrDefaultAsync(x => x.Email == request.Email);
+
+            if (existingCandidate != null)
+            {
+                existingCandidate.FirstName = request.FirstName;
+                existingCandidate.LastName = request.LastName;
+                existingCandidate.PhoneNumber = request.PhoneNumber;
+                existingCandidate.PreferredCallTime = request.PreferredCallTime;
+                existingCandidate.FreeTextComment = request.FreeTextComment;
+                existingCandidate.LinkedInProfile = request.LinkedInProfile;
+                existingCandidate.GitHubProfile = request.GitHubProfile;
+                existingCandidate.LastModified = DateTime.Now;
+                await _context.SaveChangesAsync(cancellationToken);
+                return existingCandidate.Id;
+            }
             var entity = new Candidate
             {
                 FirstName = request.FirstName,
