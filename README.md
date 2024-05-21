@@ -18,3 +18,4 @@
 ### 4. Considering Caching and Load Balancing
 - Use caching strategies to reduce the load on the database and improve response times for frequently accessed data.
 - Design the application to support load balancing to handle high volumes of requests efficiently.
+- Containerization with Docker

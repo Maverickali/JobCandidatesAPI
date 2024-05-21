@@ -10,9 +10,9 @@ namespace Application.Candidates.Commands
     public class CreateCandidate : IRequestHandler<CreateCandidateCommandDto, int>
     {
         private readonly JobCandidatesContext _context;
-        private readonly Logger<JobCandidatesContext> _logger;
+        private readonly ILogger<CreateCandidate> _logger;
 
-        public CreateCandidate(JobCandidatesContext context, Logger<JobCandidatesContext> logger)
+        public CreateCandidate(JobCandidatesContext context, ILogger<CreateCandidate> logger)
         {
             _context = context;
             _logger = logger;
@@ -57,7 +57,7 @@ namespace Application.Candidates.Commands
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"Error Message - {ex.Message}");
+                _logger.LogCritical($"Error Message - {ex.Message}");
             }
             return 0;
         }

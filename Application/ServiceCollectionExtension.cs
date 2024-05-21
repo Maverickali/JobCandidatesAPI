@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using Application.Candidates.Commands;
+using Application.Candidates.Dtos;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;

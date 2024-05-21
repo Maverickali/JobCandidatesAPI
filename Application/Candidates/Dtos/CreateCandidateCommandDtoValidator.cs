@@ -1,6 +1,4 @@
 ﻿using FluentValidation;
-using Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace Application.Candidates.Dtos
 {
@@ -9,10 +7,10 @@ namespace Application.Candidates.Dtos
         public CreateCandidateCommandDtoValidator()
         {
             RuleFor(v => v.FirstName)
-               .MaximumLength(3)
+               .MinimumLength(3)
                .NotEmpty().WithMessage("FirstName is required.");
             RuleFor(v => v.LastName)
-              .MaximumLength(3)
+              .MinimumLength(3)
               .NotEmpty().WithMessage(errorMessage: "LastName is required.");
 
             RuleFor(v => v.Email)
