@@ -6,8 +6,6 @@ namespace Application.Candidates.Dtos
 {
     public class CreateCandidateCommandDtoValidator : AbstractValidator<CreateCandidateCommandDto>
     {
-        private readonly JobCandidatesContext _context;
-
         public CreateCandidateCommandDtoValidator()
         {
             RuleFor(v => v.FirstName)
