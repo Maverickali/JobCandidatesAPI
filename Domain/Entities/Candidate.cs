@@ -13,9 +13,9 @@ namespace Domain.Entities
         [Required]
         public string? LastName { get; set; }
 
-        public string? Email { get; set; }
-
         [Required]
+        public string Email { get; set; }
+
         public string PhoneNumber { get; set; }
 
         public string? PreferredCallTime { get; set; }

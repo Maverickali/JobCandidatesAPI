@@ -1,4 +1,5 @@
 ﻿using Application.Candidates.Commands;
+using Application.Candidates.Dtos;
 using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -20,7 +21,7 @@ namespace JobCandidatesAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Candidate>> Post([FromBody] CreateCandidateCommand command)
+        public async Task<ActionResult<Candidate>> Post([FromBody] CreateCandidateCommandDto command)
         {
             var candidate = await _mediator.Send(command);
             return Ok(candidate);
