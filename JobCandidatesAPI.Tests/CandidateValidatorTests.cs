@@ -1,7 +1,5 @@
 using Application.Candidates.Dtos;
-using Domain.Entities;
 using FluentValidation.TestHelper;
-using Xunit;
 
 namespace JobCandidatesAPI.Tests
 {

@@ -1,11 +1,7 @@
-﻿using Application.Candidates.Commands;
-using Application.Candidates.Dtos;
+﻿using Application.Candidates.Dtos;
 using Domain.Entities;
 using MediatR;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace JobCandidatesAPI.Controllers
 {
